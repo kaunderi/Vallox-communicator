@@ -1,5 +1,3 @@
-SERIAL_PORT = "/dev/ttyS0"
-
 SENTENCE_START = b"\x01"
 
 SENTENCE_SYSTEM = b"\x11"

@@ -89,7 +89,7 @@ class Vallox:
 
 
 if __name__ == "__main__":
-    vallox = Vallox(MQTT_BROKER, MQTT_TOPIC, MQTT_USERNAME, MQTT_PASSWORD, SERIAL_PORT)
+    vallox = Vallox()
     vallox.subscribe()
     monitor = threading.Thread(target=vallox.monitor_values)
     monitor.start()

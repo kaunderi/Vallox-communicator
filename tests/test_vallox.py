@@ -11,7 +11,7 @@ class TestVallox(unittest.TestCase):
     def test_init(self, mock_serial, mock_mqtt):
         vallox = Vallox()
 
-        self.assertEqual(vallox.topic, "vallox")
+        self.assertEqual(vallox.topic, "homeassistant/sensor/vallox")
         self.assertEqual(vallox.serial, mock_serial.return_value)
         self.assertEqual(vallox.client, mock_mqtt.return_value)
         mock_mqtt.return_value.username_pw_set.assert_called_once_with(
@@ -47,7 +47,7 @@ class TestVallox(unittest.TestCase):
 
         self.assertEqual(vallox.counter, 1)  # Counter should reset
         mock_publish.assert_called_once_with(
-            "vallox", str(json.dumps(vallox.vallox_data))
+            "homeassistant/sensor/vallox", str(json.dumps(vallox.vallox_data))
         )
 
     @patch("Vallox_communicator.mqtt.Client", autospec=True)
